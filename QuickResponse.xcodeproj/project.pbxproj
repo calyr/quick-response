@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF446B241E1328550040EC74 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF446B231E1328550040EC74 /* Menu.swift */; };
 		CF9F9D8E1E12B4180022C2C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9F9D8D1E12B4180022C2C7 /* AppDelegate.swift */; };
 		CF9F9D901E12B4180022C2C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9F9D8F1E12B4180022C2C7 /* ViewController.swift */; };
 		CF9F9D931E12B4180022C2C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF9F9D911E12B4180022C2C7 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF446B231E1328550040EC74 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		CF9F9D8A1E12B4180022C2C7 /* QuickResponse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickResponse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF9F9D8D1E12B4180022C2C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF9F9D8F1E12B4180022C2C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				CF9F9D941E12B4180022C2C7 /* QuickResponse.xcdatamodeld */,
 				CF9F9DA21E12B8970022C2C7 /* View.swift */,
 				CF9F9DA41E12C10C0022C2C7 /* NVC.swift */,
+				CF446B231E1328550040EC74 /* Menu.swift */,
 			);
 			path = QuickResponse;
 			sourceTree = "<group>";
@@ -105,6 +108,8 @@
 				TargetAttributes = {
 					CF9F9D891E12B4180022C2C7 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = D7P3M7NR38;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -144,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF446B241E1328550040EC74 /* Menu.swift in Sources */,
 				CF9F9DA31E12B8970022C2C7 /* View.swift in Sources */,
 				CF9F9D961E12B4180022C2C7 /* QuickResponse.xcdatamodeld in Sources */,
 				CF9F9DA51E12C10C0022C2C7 /* NVC.swift in Sources */,
@@ -263,10 +269,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = D7P3M7NR38;
 				INFOPLIST_FILE = QuickResponse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nuevatel.mobile.QuickResponse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -274,10 +282,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = D7P3M7NR38;
 				INFOPLIST_FILE = QuickResponse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nuevatel.mobile.QuickResponse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -300,6 +310,7 @@
 				CF9F9DA11E12B4180022C2C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

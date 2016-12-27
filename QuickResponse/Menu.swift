@@ -1,5 +1,5 @@
 //
-//  NVC.swift
+//  Menu.swift
 //  QuickResponse
 //
 //  Created by Roberto Carlos Callisaya Mamani on 12/27/16.
@@ -8,10 +8,11 @@
 
 import UIKit
 
-class NVC: UINavigationController {
+class Menu: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Menu Principal"
 
         // Do any additional setup after loading the view.
     }
@@ -22,19 +23,14 @@ class NVC: UINavigationController {
     }
     
 
-    
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        let origen = sender as! View
-        let vc = segue.destination as! ViewController
-        origen.sesion?.stopRunning()
-        vc.urls = origen.urls!
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    
+    */
 
 }

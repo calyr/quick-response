@@ -18,15 +18,15 @@ class View: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     
     
-    override func viewWillAppear(animated: Bool) {
-        marcoQR?.frame = CGRectZero
+    override func viewWillAppear(_ animated: Bool) {
+        marcoQR?.frame = CGRect.zero
         sesion?.startRunning()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "QR Principal";
-        let dispositivo = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+        let dispositivo = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         // Do any additional setup after loading the view.
         do{
             let entrada = try AVCaptureDeviceInput(device: dispositivo)
@@ -34,7 +34,7 @@ class View: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             sesion?.addInput(entrada)
             let metaDatos = AVCaptureMetadataOutput()
             sesion?.addOutput(metaDatos)
-            metaDatos.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
+            metaDatos.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             metaDatos.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
             capa = AVCaptureVideoPreviewLayer(session: sesion!)
             capa?.videoGravity = AVLayerVideoGravityResizeAspectFill
@@ -42,7 +42,7 @@ class View: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             view.layer.addSublayer(capa!)
             marcoQR = UIView()
             marcoQR?.layer.borderWidth = 3
-            marcoQR?.layer.borderColor = UIColor.redColor().CGColor
+            marcoQR?.layer.borderColor = UIColor.red.cgColor
             
             view.addSubview(marcoQR!)
             sesion?.startRunning()
@@ -52,22 +52,22 @@ class View: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         }
     }
     
-    func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
+    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
         
-        marcoQR?.frame = CGRectZero
+        marcoQR?.frame = CGRect.zero
         if(metadataObjects == nil || metadataObjects.count == 0){
             return
         }
         let objMetadato = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
         
         if (objMetadato.type == AVMetadataObjectTypeQRCode){
-            let objBorder = capa?.transformedMetadataObjectForMetadataObject(objMetadato as AVMetadataMachineReadableCodeObject) as! AVMetadataMachineReadableCodeObject
+            let objBorder = capa?.transformedMetadataObject(for: objMetadato as AVMetadataMachineReadableCodeObject) as! AVMetadataMachineReadableCodeObject
             marcoQR?.frame = objBorder.bounds
             
             if objMetadato.stringValue != nil {
                 self.urls = objMetadato.stringValue
                 let navc = self.navigationController
-                navc?.performSegueWithIdentifier("detalle", sender: self)
+                navc?.performSegue(withIdentifier: "detalle", sender: self)
             }
             
         }

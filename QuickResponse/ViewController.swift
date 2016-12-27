@@ -12,13 +12,13 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var direccion: UILabel!
     @IBOutlet weak var web: UIWebView!
-    var urls : String?
+    var urls :String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         direccion?.text = urls!
-        let url = NSURL(string: urls!)
-        let peticion  = NSURLRequest(URL: url!)
+        let url = URL(string: urls!)
+        let peticion  = URLRequest(url: url!)
         web.loadRequest(peticion)
         // Do any additional setup after loading the view, typically from a nib.
     }
