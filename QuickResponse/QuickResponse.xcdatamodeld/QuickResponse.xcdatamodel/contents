@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11524" systemVersion="15F34" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Punto" representedClassName="Punto" syncable="YES" codeGenerationType="class">
+        <attribute name="foto" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="posicion" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="pertenece" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ruta" inverseName="tiene" inverseEntity="Ruta" syncable="YES"/>
@@ -14,7 +15,7 @@
     <fetchRequest name="petRuta" entity="Ruta" predicateString="nombre == $nombre"/>
     <fetchRequest name="petRutas" entity="Ruta"/>
     <elements>
+        <element name="Punto" positionX="-54" positionY="18" width="128" height="105"/>
         <element name="Ruta" positionX="-63" positionY="-18" width="128" height="105"/>
-        <element name="Punto" positionX="-54" positionY="18" width="128" height="90"/>
     </elements>
 </model>

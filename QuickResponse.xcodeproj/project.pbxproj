@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CF446B241E1328550040EC74 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF446B231E1328550040EC74 /* Menu.swift */; };
+		CF446B261E13351F0040EC74 /* PuntoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF446B251E13351F0040EC74 /* PuntoController.swift */; };
 		CF9F9D8E1E12B4180022C2C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9F9D8D1E12B4180022C2C7 /* AppDelegate.swift */; };
 		CF9F9D901E12B4180022C2C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9F9D8F1E12B4180022C2C7 /* ViewController.swift */; };
 		CF9F9D931E12B4180022C2C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF9F9D911E12B4180022C2C7 /* Main.storyboard */; };
@@ -16,10 +17,13 @@
 		CF9F9D9B1E12B4180022C2C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF9F9D991E12B4180022C2C7 /* LaunchScreen.storyboard */; };
 		CF9F9DA31E12B8970022C2C7 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9F9DA21E12B8970022C2C7 /* View.swift */; };
 		CF9F9DA51E12C10C0022C2C7 /* NVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9F9DA41E12C10C0022C2C7 /* NVC.swift */; };
+		CFEC40401E146750008605FB /* MisRutas.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEC403F1E146750008605FB /* MisRutas.swift */; };
+		CFEC40421E146C51008605FB /* NewRuta.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEC40411E146C51008605FB /* NewRuta.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CF446B231E1328550040EC74 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		CF446B251E13351F0040EC74 /* PuntoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuntoController.swift; sourceTree = "<group>"; };
 		CF9F9D8A1E12B4180022C2C7 /* QuickResponse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickResponse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF9F9D8D1E12B4180022C2C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF9F9D8F1E12B4180022C2C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -30,6 +34,8 @@
 		CF9F9D9C1E12B4180022C2C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF9F9DA21E12B8970022C2C7 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		CF9F9DA41E12C10C0022C2C7 /* NVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVC.swift; sourceTree = "<group>"; };
+		CFEC403F1E146750008605FB /* MisRutas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MisRutas.swift; sourceTree = "<group>"; };
+		CFEC40411E146C51008605FB /* NewRuta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRuta.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,9 @@
 				CF9F9DA21E12B8970022C2C7 /* View.swift */,
 				CF9F9DA41E12C10C0022C2C7 /* NVC.swift */,
 				CF446B231E1328550040EC74 /* Menu.swift */,
+				CF446B251E13351F0040EC74 /* PuntoController.swift */,
+				CFEC403F1E146750008605FB /* MisRutas.swift */,
+				CFEC40411E146C51008605FB /* NewRuta.swift */,
 			);
 			path = QuickResponse;
 			sourceTree = "<group>";
@@ -103,7 +112,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Roberto Carlos Callisaya Mamani";
 				TargetAttributes = {
 					CF9F9D891E12B4180022C2C7 = {
@@ -150,9 +159,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF446B241E1328550040EC74 /* Menu.swift in Sources */,
+				CFEC40401E146750008605FB /* MisRutas.swift in Sources */,
 				CF9F9DA31E12B8970022C2C7 /* View.swift in Sources */,
 				CF9F9D961E12B4180022C2C7 /* QuickResponse.xcdatamodeld in Sources */,
 				CF9F9DA51E12C10C0022C2C7 /* NVC.swift in Sources */,
+				CFEC40421E146C51008605FB /* NewRuta.swift in Sources */,
+				CF446B261E13351F0040EC74 /* PuntoController.swift in Sources */,
 				CF9F9D901E12B4180022C2C7 /* ViewController.swift in Sources */,
 				CF9F9D8E1E12B4180022C2C7 /* AppDelegate.swift in Sources */,
 			);
@@ -194,8 +206,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -217,7 +231,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -240,8 +254,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -257,9 +273,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
