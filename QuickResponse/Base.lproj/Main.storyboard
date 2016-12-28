@@ -141,11 +141,17 @@
                                 <frame key="frameInset" minX="245" minY="289" width="114" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Album"/>
+                                <connections>
+                                    <action selector="aAlbum" destination="ZZZ-W1-sIE" eventType="touchUpInside" id="wDo-WD-T7p"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qv6-7q-us0">
                                 <frame key="frameInset" minX="154" minY="289" width="53" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Camara"/>
+                                <connections>
+                                    <action selector="aCamara" destination="ZZZ-W1-sIE" eventType="touchUpInside" id="dsy-ZE-r7T"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -158,6 +164,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="btnAlbum" destination="HXh-ds-SPL" id="FOP-qt-1Lf"/>
+                        <outlet property="btnCamara" destination="Qv6-7q-us0" id="M60-78-ffE"/>
                         <outlet property="descripcion" destination="kqu-yd-Nlb" id="sE7-lA-zLC"/>
                         <outlet property="foto" destination="7N3-ch-tTf" id="Xzb-cz-3FB"/>
                         <outlet property="nombre" destination="Wov-qi-Ww6" id="Ek0-5m-pxi"/>

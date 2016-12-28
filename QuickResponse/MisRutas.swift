@@ -7,25 +7,34 @@
 //
 
 import UIKit
-import CoreLocation
 import CoreData
 
-class MisRutas: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MisRutas: UIViewController {
+    
+    var contexto : NSManagedObjectContext? = nil
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.title = "Mis Rutas"
-        //let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(MisRutas.newRuta));        // boton derecho
-        //self.navigationItem.rightBarButtonItem = addButton
+        self.contexto = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
+        
+        mostrarRutas()
     }
     
-    /*func newRuta(){
-        let newRutaController = NewRuta(nibName: "NewRuta", bundle: nil)
-        self.navigationController?.pushViewController(newRutaController, animated: true)
-        print("Funcion el boton")
-    }*/
-
+    func mostrarRutas(){
+        print("Nuevo mostrar rutas new")
+        contexto?.perform {
+            let fetchRequest : NSFetchRequest<Ruta> = Ruta.fetchRequest()
+            let rutas = try! fetchRequest.execute()
+            for ruta in rutas{
+                if let nombre = ruta.nombre {
+                    print("Fetched Managed Object = \(nombre)")
+                }
+            }
+        }
+        print("End mostrar rutas new")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
