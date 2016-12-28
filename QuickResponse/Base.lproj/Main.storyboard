@@ -40,7 +40,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Rutas"/>
                                 <connections>
-                                    <segue destination="O8W-tp-aiz" kind="show" id="IVq-Y2-BBE"/>
+                                    <segue destination="mHq-2Q-gwb" kind="show" id="oDZ-Ye-OJq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="my4-Fs-tv3">
@@ -61,29 +61,39 @@
             <point key="canvasLocation" x="714" y="-1181"/>
         </scene>
         <!--Mis Rutas-->
-        <scene sceneID="zKX-eE-gDN">
+        <scene sceneID="e1w-qd-qH5">
             <objects>
-                <viewController id="O8W-tp-aiz" customClass="MisRutas" customModule="QuickResponse" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ae9-bu-vi5"/>
-                        <viewControllerLayoutGuide type="bottom" id="S7Y-Es-rN6"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Jht-o1-dmB">
+                <tableViewController id="mHq-2Q-gwb" customClass="ListaRutas" customModule="QuickResponse" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="uwJ-aX-YGI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Mis Rutas" id="qKJ-jn-Uuq">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="TAB-qm-EYc">
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellRuta" id="y2U-fa-8Rd">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y2U-fa-8Rd" id="fgc-nY-dSW">
+                                    <frame key="frameInset" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="mHq-2Q-gwb" id="0md-72-fev"/>
+                            <outlet property="delegate" destination="mHq-2Q-gwb" id="csX-HC-p0x"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Mis Rutas" id="U2K-Wn-ywF">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vjF-Wa-kSh">
                             <connections>
-                                <segue destination="ZZZ-W1-sIE" kind="show" id="hbe-GT-zSL"/>
+                                <segue destination="ZZZ-W1-sIE" kind="show" id="ipN-b3-8Ln"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pDK-hz-P81" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e8o-nO-sGZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1566" y="-1888"/>
+            <point key="canvasLocation" x="1393" y="-2019"/>
         </scene>
         <!--Nueva Ruta-->
         <scene sceneID="1Fn-J0-0yQ">
@@ -286,7 +296,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rG8-lb-uU7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1567" y="-1191"/>
+            <point key="canvasLocation" x="2366" y="-1197"/>
         </scene>
         <!--View-->
         <scene sceneID="eg0-MG-6yd">

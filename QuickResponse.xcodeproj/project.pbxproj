@@ -19,6 +19,7 @@
 		CF9F9DA51E12C10C0022C2C7 /* NVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9F9DA41E12C10C0022C2C7 /* NVC.swift */; };
 		CFEC40401E146750008605FB /* MisRutas.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEC403F1E146750008605FB /* MisRutas.swift */; };
 		CFEC40421E146C51008605FB /* NewRuta.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEC40411E146C51008605FB /* NewRuta.swift */; };
+		CFEC40441E147E14008605FB /* ListaRutas.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEC40431E147E14008605FB /* ListaRutas.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		CF9F9DA41E12C10C0022C2C7 /* NVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVC.swift; sourceTree = "<group>"; };
 		CFEC403F1E146750008605FB /* MisRutas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MisRutas.swift; sourceTree = "<group>"; };
 		CFEC40411E146C51008605FB /* NewRuta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRuta.swift; sourceTree = "<group>"; };
+		CFEC40431E147E14008605FB /* ListaRutas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaRutas.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				CF446B251E13351F0040EC74 /* PuntoController.swift */,
 				CFEC403F1E146750008605FB /* MisRutas.swift */,
 				CFEC40411E146C51008605FB /* NewRuta.swift */,
+				CFEC40431E147E14008605FB /* ListaRutas.swift */,
 			);
 			path = QuickResponse;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 				CF9F9DA51E12C10C0022C2C7 /* NVC.swift in Sources */,
 				CFEC40421E146C51008605FB /* NewRuta.swift in Sources */,
 				CF446B261E13351F0040EC74 /* PuntoController.swift in Sources */,
+				CFEC40441E147E14008605FB /* ListaRutas.swift in Sources */,
 				CF9F9D901E12B4180022C2C7 /* ViewController.swift in Sources */,
 				CF9F9D8E1E12B4180022C2C7 /* AppDelegate.swift in Sources */,
 			);
