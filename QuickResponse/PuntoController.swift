@@ -84,8 +84,7 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
     
         
     func mostrarRutasNew(){
-        //print("Nuevo mostrar rutas new")
-        //print(ruta)
+        
         contexto?.perform {
             
         
@@ -98,7 +97,6 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
             }
         }
         }
-       // print("End mostrar rutas new")
     }
     
     func savePunto(){
@@ -139,21 +137,15 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
     }
     
     func mostrarPuntos(){
-        print("Mostrando los puntos")
         contexto?.perform {
             
             
-            //let fetchRequest : NSFetchRequest<Ruta> = Ruta.fetchRequest()
-            //let rutas = try! fetchRequest.execute()
             var contador = 0
             for punto in (self.ruta?.tiene)!  {
                 
                 let puntoData = punto as! Punto
                 
-                    print("Punto Managed Object = \(puntoData.nombre!)")
-                    print("Posicion = \(puntoData.posicion)")
-                    print("Latitud \(puntoData.latitud)")
-                    print("Latitud \(puntoData.longitud)")
+                
                     if(contador == 0 ){
                         self.mapa.setCenter(CLLocationCoordinate2D(latitude: puntoData.latitud, longitude: puntoData.longitud), animated: true)
                         contador += 1
@@ -164,33 +156,12 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
                     self.marcarPin(latitud: puntoData.latitud, longitud: puntoData.longitud, titulo: puntoData.nombre!)
             }
         }
-        print("Mostrando los end")
     }
     
     @IBAction func guardar() {
         
-        //print(ruta!.nombre)
-        //print(ruta!.descripcion)
-        //agregarPin((manejador.location?.coordinate)!)
         savePunto()
         mostrarPuntos()
-        /*
-        let entityDescription =
-            NSEntityDescription.entity(forEntityName: "Ruta",
-                                       in: contexto!)
-        let ruta = Ruta(entity: entityDescription!, insertInto: self.contexto!)
-        
-        ruta.nombre =  nombre.text
-        ruta.descripcion = descripcion.text
-        ruta.foto = UIImagePNGRepresentation(fotoVista.image!) as NSData?
-        do{
-            try self.contexto?.save()
-            self.nombre.text = ""
-            self.descripcion.text = ""
-            self.fotoVista.image = nil
-        }catch let error{
-            print( error.localizedDescription )
-        }*/
         
     }
     
