@@ -19,9 +19,6 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
     @IBOutlet weak var descripcion: UITextView!
     @IBOutlet weak var nombre: UITextField!
     @IBOutlet weak var cameraButton: UIButton!
-    @IBOutlet weak var latitud: UILabel!
-    @IBOutlet weak var longitud: UILabel!
-    @IBOutlet weak var exaHor: UILabel!
     private let manejador = CLLocationManager()
     @IBOutlet weak var fotoVista: UIImageView!
     private let miPicker = UIImagePickerController()
@@ -35,7 +32,14 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
             cameraButton.isHidden = true
         }
         
-        //mostrarRutasNew()
+        
+        
+        if let miruta = ruta{
+            self.nombre.text = miruta.nombre!
+            //self.descripcion.text = miruta.descripcion!
+
+        }
+        
         mostrarPuntos()
         miPicker.delegate = self
         
@@ -51,10 +55,7 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
         //mapa.setCenter(mapa.userLocation.coordinate, animated: true)
         
         
-        // Realiza un zoom y seguimiento del usuario
-        //print("Fin de")
-        
-        // Do any additional setup after loading the view.
+       
     }
     @IBAction func camara() {
         miPicker.sourceType = UIImagePickerControllerSourceType.camera
@@ -66,7 +67,6 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
         present(miPicker, animated:true, completion: nil)
     }
     
-   
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
@@ -102,21 +102,39 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
     }
     
     func savePunto(){
+        let alert = UIAlertController(title: "Lugar Favorito", message: "Ingrese el nombre del lugar favorito", preferredStyle: .alert)
         
-        let entityDescripcion = NSEntityDescription.entity(forEntityName: "Punto", in: contexto!)
-        let punto = Punto(entity: entityDescripcion!, insertInto: self.contexto!)
-        print("El nombre es = " + self.nombre.text!)
-        punto.nombre = self.nombre.text!
-        let latitude  = String(describing: manejador.location?.coordinate.latitude)
-        let longitude = String(describing: manejador.location?.coordinate.longitude)
-        
-        punto.posicion =  latitude + ","+longitude
-        self.ruta?.addToTiene(punto)
-        do{
-            try contexto?.save()
-        }catch let error {
-            print(error.localizedDescription)
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextField { (textField) in
+            textField.text = ""
         }
+        
+        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+            print("Text field: \(textField?.text)")
+            
+            let entityDescripcion = NSEntityDescription.entity(forEntityName: "Punto", in: self.contexto!)
+            let punto = Punto(entity: entityDescripcion!, insertInto: self.contexto!)
+            punto.nombre = textField?.text
+            
+            punto.latitud = (self.manejador.location?.coordinate.latitude)!
+            punto.longitud = (self.manejador.location?.coordinate.longitude)!
+            //punto.posicion =  latitude + ","+longitude
+            self.ruta?.addToTiene(punto)
+            do{
+                try self.contexto?.save()
+                self.marcarPin(latitud: punto.latitud, longitud: punto.longitud, titulo : punto.nombre!)
+                self.mapa.setCenter( CLLocationCoordinate2D(latitude: punto.latitud, longitude: punto.longitud), animated: true)
+            }catch let error {
+                print(error.localizedDescription)
+            }
+            
+            }))
+        
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
+        
 
     }
     
@@ -127,13 +145,23 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
             
             //let fetchRequest : NSFetchRequest<Ruta> = Ruta.fetchRequest()
             //let rutas = try! fetchRequest.execute()
-            
+            var contador = 0
             for punto in (self.ruta?.tiene)!  {
+                
                 let puntoData = punto as! Punto
                 
                     print("Punto Managed Object = \(puntoData.nombre!)")
-                    print("Posicion = \(puntoData.posicion!)")
-                
+                    print("Posicion = \(puntoData.posicion)")
+                    print("Latitud \(puntoData.latitud)")
+                    print("Latitud \(puntoData.longitud)")
+                    if(contador == 0 ){
+                        self.mapa.setCenter(CLLocationCoordinate2D(latitude: puntoData.latitud, longitude: puntoData.longitud), animated: true)
+                        contador += 1
+                        let span = MKCoordinateSpanMake(0.075, 0.075)
+                        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: puntoData.latitud, longitude: puntoData.longitud), span: span)
+                        self.mapa.setRegion(region, animated: true)
+                    }
+                    self.marcarPin(latitud: puntoData.latitud, longitud: puntoData.longitud, titulo: puntoData.nombre!)
             }
         }
         print("Mostrando los end")
@@ -182,22 +210,23 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
         //print("Actualizando la localización")
-        marcar((manejador.location?.coordinate)!)
     }
     
-    func marcar(_ coordenadas: CLLocationCoordinate2D)
-    {
-        
-    
-        latitud.text = String(coordenadas.latitude)
-        longitud.text = String(coordenadas.longitude)
-    }
     
     func agregarPin(_ coordenadas: CLLocationCoordinate2D)
     {
         let pin = MKPointAnnotation()
         pin.title = "Lat: \(coordenadas.latitude)  Long: \(coordenadas.longitude)"
         //pin.subtitle = "Total recorrido: \(distanciaRecorrida) mtrs"
+        pin.coordinate = coordenadas
+        mapa.addAnnotation(pin)
+    }
+    
+    func marcarPin ( latitud : Double, longitud : Double, titulo : String){
+        let coordenadas = CLLocationCoordinate2D(latitude: latitud, longitude: longitud)
+        let pin = MKPointAnnotation()
+        pin.title = titulo
+        pin.subtitle = "Lat: \(latitud)  Long: \(longitud)"
         pin.coordinate = coordenadas
         mapa.addAnnotation(pin)
     }
