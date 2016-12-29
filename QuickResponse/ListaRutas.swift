@@ -26,31 +26,16 @@ class ListaRutas: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-    func mostrarRutas2(){
-        print("Nuevo mostrar rutas new")
-        toDoItems = []
-        contexto?.perform {
-            let fetchRequest : NSFetchRequest<Ruta> = Ruta.fetchRequest()
-            let rutas = try! fetchRequest.execute()
-            for ruta in rutas{
-                if let nombre = ruta.nombre {
-                    print("Fetched Managed Object = \(nombre)")
-                    toDoItems.append(ruta)
-                }
-            }
-        }
-        print(toDoItems)
-        print("End mostrar rutas new")
-    }
+    
     
     func mostrarRutas(){
-        print("Nuevo mostrar rutas new")
+        //print("Nuevo mostrar rutas new")
         toDoItems = []
         do{
             let fetchRequest : NSFetchRequest<Ruta> = Ruta.fetchRequest()
             let rutas = try contexto?.fetch(fetchRequest)
             for ruta in rutas! {
-                print("Fetched Managed Object = \(ruta.nombre)")
+                //print("Fetched Managed Object = \(ruta.nombre)")
                 toDoItems.append(ruta)
             }
         }catch let error as NSError{
@@ -67,8 +52,8 @@ class ListaRutas: UITableViewController {
                 }
             }
         }*/
-        print(toDoItems)
-        print("End mostrar rutas new")
+        //print(toDoItems)
+        //print("End mostrar rutas new")
     }
 
     override func didReceiveMemoryWarning() {
@@ -85,7 +70,7 @@ class ListaRutas: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        print("Cantidad de filas \(toDoItems.count)")
+        //print("Cantidad de filas \(toDoItems.count)")
         return toDoItems.count
     }
 
@@ -148,11 +133,11 @@ class ListaRutas: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "showRuta"{
-            print("Se preciono el boton detail")
+            //print("Se preciono el boton detail")
             let detailView = segue.destination as! PuntoController
             
                 let indexPath = tableView.indexPathForSelectedRow
-                print(indexPath?.row)
+                //print(indexPath?.row)
                 detailView.ruta = toDoItems[(indexPath?.row)!]
             
         }

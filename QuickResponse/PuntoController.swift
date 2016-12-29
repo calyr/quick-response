@@ -35,11 +35,11 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
             cameraButton.isHidden = true
         }
         
-        mostrarRutasNew()
-        
+        //mostrarRutasNew()
+        mostrarPuntos()
         miPicker.delegate = self
         
-        print("Ingreso al manejador")
+        //print("Ingreso al manejador")
         manejador.delegate = self
         manejador.desiredAccuracy = kCLLocationAccuracyBest
         //manejador.distanceFilter = 10.0
@@ -52,7 +52,7 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
         
         
         // Realiza un zoom y seguimiento del usuario
-        print("Fin de")
+        //print("Fin de")
         
         // Do any additional setup after loading the view.
     }
@@ -84,8 +84,8 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
     
         
     func mostrarRutasNew(){
-        print("Nuevo mostrar rutas new")
-        print(ruta)
+        //print("Nuevo mostrar rutas new")
+        //print(ruta)
         contexto?.perform {
             
         
@@ -98,15 +98,54 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
             }
         }
         }
-        print("End mostrar rutas new")
+       // print("End mostrar rutas new")
     }
     
+    func savePunto(){
+        
+        let entityDescripcion = NSEntityDescription.entity(forEntityName: "Punto", in: contexto!)
+        let punto = Punto(entity: entityDescripcion!, insertInto: self.contexto!)
+        print("El nombre es = " + self.nombre.text!)
+        punto.nombre = self.nombre.text!
+        let latitude  = String(describing: manejador.location?.coordinate.latitude)
+        let longitude = String(describing: manejador.location?.coordinate.longitude)
+        
+        punto.posicion =  latitude + ","+longitude
+        self.ruta?.addToTiene(punto)
+        do{
+            try contexto?.save()
+        }catch let error {
+            print(error.localizedDescription)
+        }
+
+    }
+    
+    func mostrarPuntos(){
+        print("Mostrando los puntos")
+        contexto?.perform {
+            
+            
+            //let fetchRequest : NSFetchRequest<Ruta> = Ruta.fetchRequest()
+            //let rutas = try! fetchRequest.execute()
+            
+            for punto in (self.ruta?.tiene)!  {
+                let puntoData = punto as! Punto
+                
+                    print("Punto Managed Object = \(puntoData.nombre!)")
+                    print("Posicion = \(puntoData.posicion!)")
+                
+            }
+        }
+        print("Mostrando los end")
+    }
     
     @IBAction func guardar() {
         
-        print(ruta!.nombre)
-        print(ruta!.descripcion)
-        agregarPin((manejador.location?.coordinate)!)
+        //print(ruta!.nombre)
+        //print(ruta!.descripcion)
+        //agregarPin((manejador.location?.coordinate)!)
+        savePunto()
+        mostrarPuntos()
         /*
         let entityDescription =
             NSEntityDescription.entity(forEntityName: "Ruta",
@@ -148,9 +187,7 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
     
     func marcar(_ coordenadas: CLLocationCoordinate2D)
     {
-        //print("Marcando los puntos la localización")
-        //print(coordenadas.latitude)
-        //print(coordenadas.longitude)
+        
     
         latitud.text = String(coordenadas.latitude)
         longitud.text = String(coordenadas.longitude)
