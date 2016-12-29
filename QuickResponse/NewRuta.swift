@@ -83,15 +83,15 @@ class NewRuta: UIViewController, CLLocationManagerDelegate, UIImagePickerControl
         }
     }
     
-    
-    
     func guardarRuta(){
         let entityDescripcion = NSEntityDescription.entity(forEntityName: "Ruta", in: contexto!)
         let ruta = Ruta(entity: entityDescripcion!, insertInto: self.contexto!)
         
         ruta.nombre = nombre.text
         ruta.descripcion = descripcion.text
-        ruta.foto = UIImagePNGRepresentation(foto.image!) as NSData?
+        if foto.image != nil{
+            ruta.foto = UIImagePNGRepresentation(foto.image!) as NSData?
+        }
         do{
             try self.contexto?.save()
             clearForm()
@@ -103,9 +103,7 @@ class NewRuta: UIViewController, CLLocationManagerDelegate, UIImagePickerControl
             
             alerta.addAction(accionOk)
             present(alerta, animated: true, completion: nil)
-
-            
-            
+           
             
         }catch let error{
             print( error.localizedDescription)
@@ -115,8 +113,7 @@ class NewRuta: UIViewController, CLLocationManagerDelegate, UIImagePickerControl
     func clearForm(){
         self.nombre.text = ""
         self.descripcion.text = ""
-        
-        
+               
         
         
     }
