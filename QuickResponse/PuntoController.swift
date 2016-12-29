@@ -9,9 +9,13 @@
 import UIKit
 import CoreLocation
 import CoreData
+import MapKit
 
 class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    var ruta : Ruta?
 
+    @IBOutlet weak var mapa: MKMapView!
     @IBOutlet weak var descripcion: UITextView!
     @IBOutlet weak var nombre: UITextField!
     @IBOutlet weak var cameraButton: UIButton!
@@ -30,6 +34,7 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
         if !UIImagePickerController.isSourceTypeAvailable(.camera){
             cameraButton.isHidden = true
         }
+        
         mostrarRutasNew()
         
         miPicker.delegate = self
@@ -44,6 +49,7 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
         
         // Centra el mapa en la posición del usuario.
         //mapa.setCenter(mapa.userLocation.coordinate, animated: true)
+        
         
         // Realiza un zoom y seguimiento del usuario
         print("Fin de")
@@ -76,33 +82,10 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
         picker.dismiss(animated: true, completion: nil)
     }
     
-    func mostrarRutas(){
-        print("Ingreso a mostrarRutas")
         
-        let rutaEntity = NSEntityDescription.entity(forEntityName: "Ruta", in: self.contexto!)
-        
-        let rutasPeticion = rutaEntity?.managedObjectModel.fetchRequestTemplate(forName: "petRutas")
-        let rutasPet : NSFetchRequest<Ruta> = Ruta.fetchRequest()
-        
-        
-        do{
-            //let rutas = try self.contexto?.execute(rutasPeticion!)
-            //let rutas = try contexto?.execute(rutasPeticion!) as! Ruta // .fetch(rutasPeticion!)
-            //let rutas = try contexto?.fetch(rutasPeticion!)
-            //print("Cantidad de rutas \(rutas!.count)")
-/*            for ruta in rutas? as [NSManagedObject] {
-                print(ruta.value(forKey : "nombre"))
-                print(ruta.value(forKey : "descripcion"))
-            }  */
-        }catch {
-            print("Error with request \(error)")
-        }
-        
-        print("End mostrarRutas")
-    }
-    
     func mostrarRutasNew(){
         print("Nuevo mostrar rutas new")
+        print(ruta)
         contexto?.perform {
             
         
@@ -121,19 +104,10 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
     
     @IBAction func guardar() {
         
-    /*    let rutaNew = NSEntityDescription.insertNewObject(forEntityName: "Ruta", into: self.contexto!)
-        
-        
-        rutaNew.setValue(self.nombre.text!, forKey : "nombre")
-        rutaNew.setValue(self.descripcion.text!, forKey: "descripcion")
-        rutaNew.setValue(UIImagePNGRepresentation(fotoVista.image!), forKey : "foto")
-        do{
-           try self.contexto?.save()
-        }catch{
-            print("Error with request \(error)")
-        }
-        mostrarRutas()
-      */
+        print(ruta!.nombre)
+        print(ruta!.descripcion)
+        agregarPin((manejador.location?.coordinate)!)
+        /*
         let entityDescription =
             NSEntityDescription.entity(forEntityName: "Ruta",
                                        in: contexto!)
@@ -149,19 +123,8 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
             self.fotoVista.image = nil
         }catch let error{
             print( error.localizedDescription )
-        }
-        /*
-        UIImageWriteToSavedPhotosAlbum(fotoVista.image!, nil, nil, nil)
-        let alerta = UIAlertController(title: "Listo!", message: "Foto Guardada en el álbum", preferredStyle: .alert)
+        }*/
         
-        let accionOk = UIAlertAction(title: "OK", style: .default, handler: {
-            accion in
-            //
-        })
-        
-        alerta.addAction(accionOk)
-        present(alerta, animated: true, completion: nil)
-        */
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -192,6 +155,16 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
         latitud.text = String(coordenadas.latitude)
         longitud.text = String(coordenadas.longitude)
     }
+    
+    func agregarPin(_ coordenadas: CLLocationCoordinate2D)
+    {
+        let pin = MKPointAnnotation()
+        pin.title = "Lat: \(coordenadas.latitude)  Long: \(coordenadas.longitude)"
+        //pin.subtitle = "Total recorrido: \(distanciaRecorrida) mtrs"
+        pin.coordinate = coordenadas
+        mapa.addAnnotation(pin)
+    }
+
     
   
     

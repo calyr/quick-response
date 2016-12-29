@@ -95,8 +95,18 @@ class NewRuta: UIViewController, CLLocationManagerDelegate, UIImagePickerControl
         do{
             try self.contexto?.save()
             clearForm()
-            self.navigationController?.popViewController(animated: true)
+            let alerta = UIAlertController(title: "Ruta", message: " Se guardo la ruta exitosamente.", preferredStyle: .alert)
+            let accionOk = UIAlertAction(title: "OK", style: .default, handler: {
+                accion in
+                self.navigationController?.popViewController(animated: true)
+            })
+            
+            alerta.addAction(accionOk)
+            present(alerta, animated: true, completion: nil)
 
+            
+            
+            
         }catch let error{
             print( error.localizedDescription)
         }
@@ -105,7 +115,7 @@ class NewRuta: UIViewController, CLLocationManagerDelegate, UIImagePickerControl
     func clearForm(){
         self.nombre.text = ""
         self.descripcion.text = ""
-        showAlert(title: "Ruta", mensaje: "Se guardo la ruta exitosamente.")
+        
         
         
         
