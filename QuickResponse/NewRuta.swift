@@ -95,6 +95,8 @@ class NewRuta: UIViewController, CLLocationManagerDelegate, UIImagePickerControl
         do{
             try self.contexto?.save()
             clearForm()
+            self.navigationController?.popViewController(animated: true)
+
         }catch let error{
             print( error.localizedDescription)
         }
@@ -104,6 +106,7 @@ class NewRuta: UIViewController, CLLocationManagerDelegate, UIImagePickerControl
         self.nombre.text = ""
         self.descripcion.text = ""
         showAlert(title: "Ruta", mensaje: "Se guardo la ruta exitosamente.")
+        
         
         
     }

@@ -13,6 +13,7 @@ var toDoItems : [Ruta] = []
 class ListaRutas: UITableViewController {
     var contexto : NSManagedObjectContext? = nil
 
+    @IBOutlet var tablaRutas: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.contexto = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
@@ -94,12 +95,15 @@ class ListaRutas: UITableViewController {
 
         // Configure the cell...
         cell.textLabel?.text = toDoItems[indexPath.row].nombre
+        cell.detailTextLabel?.text = toDoItems[indexPath.row].descripcion
+
         return cell
     }
     
-    /*func viewWillAppear(_ animated: Bool) {
-        
-    }*/
+    override func viewWillAppear(_ animated: Bool) {
+        mostrarRutas()
+        tablaRutas?.reloadData()
+    }
     
 
     /*
