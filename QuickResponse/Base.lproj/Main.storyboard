@@ -207,7 +207,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xth-ld-kEh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2366" y="-1616"/>
+            <point key="canvasLocation" x="3417" y="-2116"/>
         </scene>
         <!--Ruta-->
         <scene sceneID="nWk-Tj-xJU">
@@ -222,7 +222,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhq-rF-Xwo">
-                                <frame key="frameInset" minX="54" minY="260" width="40" height="30"/>
+                                <frame key="frameInset" minX="54" minY="240" width="40" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Albun"/>
                                 <connections>
@@ -274,11 +274,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XGZ-pb-44I">
-                                <frame key="frameInset" minX="41" minY="213" width="53" height="30"/>
+                                <frame key="frameInset" minX="41" minY="202" width="53" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Camara"/>
                                 <connections>
                                     <action selector="camara" destination="24X-vl-hpm" eventType="touchUpInside" id="P8V-DE-i2M"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDy-Ar-dBr">
+                                <frame key="frameInset" minX="56" minY="278" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="QR"/>
+                                <connections>
+                                    <segue destination="338-lh-Als" kind="show" id="wqY-gx-lmg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -307,7 +315,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rG8-lb-uU7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2296.8000000000002" y="-2462.5187406296855"/>
+            <point key="canvasLocation" x="2374" y="-1614"/>
         </scene>
         <!--View-->
         <scene sceneID="eg0-MG-6yd">
@@ -326,7 +334,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r8f-8M-v1e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="986" y="-420"/>
+            <point key="canvasLocation" x="2374" y="-858"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -362,7 +370,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="916" y="302"/>
+            <point key="canvasLocation" x="1140" y="-131"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="wqY-gx-lmg"/>
+    </inferredMetricsTieBreakers>
 </document>
