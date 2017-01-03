@@ -289,14 +289,6 @@
                                     <segue destination="338-lh-Als" kind="show" id="wqY-gx-lmg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RxR-KC-w0i">
-                                <frame key="frameInset" minX="2" minY="269" width="89" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Mostrar Ruta"/>
-                                <connections>
-                                    <action selector="drawLineBtn" destination="24X-vl-hpm" eventType="touchUpInside" id="VM3-XR-tHV"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
