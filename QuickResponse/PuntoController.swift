@@ -23,6 +23,7 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
     @IBOutlet weak var fotoVista: UIImageView!
     private let miPicker = UIImagePickerController()
     var contexto : NSManagedObjectContext? = nil
+    var myRoute : MKRoute!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,9 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
         
         mostrarPuntos()
         miPicker.delegate = self
+        mapa.isZoomEnabled = true
+        mapa.isRotateEnabled = false
+        mapa.isScrollEnabled = true
         
         //print("Ingreso al manejador")
         manejador.delegate = self
@@ -52,7 +56,8 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
         manejador.requestWhenInUseAuthorization()
         
         // Centra el mapa en la posición del usuario.
-        //mapa.setCenter(mapa.userLocation.coordinate, animated: true)
+        mapa.setCenter(mapa.userLocation.coordinate, animated: true)
+        mapa.showsUserLocation = true
         
         
        
@@ -66,6 +71,8 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
         miPicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         present(miPicker, animated:true, completion: nil)
     }
+    
+    
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -141,19 +148,32 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
             
             
             var contador = 0
+            let directionsRequest = MKDirectionsRequest()
             for punto in (self.ruta?.tiene)!  {
                 
                 let puntoData = punto as! Punto
                 
+                   let puntoNow = MKPlacemark(coordinate: CLLocationCoordinate2DMake(puntoData.latitud, puntoData.longitud), addressDictionary: nil)
+                
+                    if( contador % 2 == 0){
+                        directionsRequest.source = MKMapItem(placemark: puntoNow)
+                    }else{
+                        directionsRequest.destination = MKMapItem(placemark: puntoNow)
+                        self.crearRuta(itemOrigen: directionsRequest.source!, itemDestino:  directionsRequest.destination!)
+                        print("Ingreso a dibujar")
+                    }
                 
                     if(contador == 0 ){
                         self.mapa.setCenter(CLLocationCoordinate2D(latitude: puntoData.latitud, longitude: puntoData.longitud), animated: true)
-                        contador += 1
+                        
                         let span = MKCoordinateSpanMake(0.075, 0.075)
                         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: puntoData.latitud, longitude: puntoData.longitud), span: span)
                         self.mapa.setRegion(region, animated: true)
                     }
+                    contador += 1
                     self.marcarPin(latitud: puntoData.latitud, longitud: puntoData.longitud, titulo: puntoData.nombre!)
+                
+                
             }
         }
     }
@@ -169,11 +189,11 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
         if status == .authorizedWhenInUse {
             //print("Autorizacio Okey")
             manejador.startUpdatingLocation()
-            //mapa.showsUserLocation = true
+            mapa.showsUserLocation = true
         } else {
             //print("StopUpdatingLocation")
             manejador.stopUpdatingLocation()
-            //mapa.showsUserLocation = false
+            mapa.showsUserLocation = false
         }
     }
     
@@ -200,7 +220,68 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
         pin.subtitle = "Lat: \(latitud)  Long: \(longitud)"
         pin.coordinate = coordenadas
         mapa.addAnnotation(pin)
+        
+        
     }
+    
+   
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
+    
+    func dibujarRuta(respuesta: MKDirectionsResponse) {
+        self.mapa.add(respuesta.routes[0].polyline, level: MKOverlayLevel.aboveRoads)
+    }
+    
+    @IBAction func drawLineBtn() {
+        
+    }
+   
+   func crearRuta(itemOrigen: MKMapItem, itemDestino: MKMapItem){
+        
+        let solicitud = MKDirectionsRequest()
+        solicitud.source = itemOrigen
+        solicitud.destination = itemDestino
+        solicitud.transportType = .walking
+        
+        let indicaciones = MKDirections(request: solicitud)
+        indicaciones.calculate(completionHandler: {
+            (respuesta: MKDirectionsResponse?, error: Error?) in
+            if(error != nil){
+                print("Error al obtener la ruta")
+            }else{
+                self.muestraRuta(respuesta: respuesta!)
+            }
+            
+        } )
+        
+    }
+    
+    func muestraRuta(respuesta: MKDirectionsResponse){
+        print("ingreso a mostrar la ruta")
+        for ruta in respuesta.routes{
+            print("Primer elemento")
+            mapa.add(ruta.polyline, level: MKOverlayLevel.aboveRoads)
+            for paso in ruta.steps{
+                print("Pasos")
+                print("Paso \(paso.instructions)")
+
+            }
+        }
+        
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.strokeColor = UIColor.blue
+        renderer.lineWidth = 3
+        return renderer
+    }
+    
+
+
 
     
   
