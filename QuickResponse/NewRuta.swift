@@ -98,7 +98,6 @@ class NewRuta: UIViewController, CLLocationManagerDelegate, UIImagePickerControl
             let alerta = UIAlertController(title: "Ruta", message: " Se guardo la ruta exitosamente.", preferredStyle: .alert)
             let accionOk = UIAlertAction(title: "OK", style: .default, handler: {
                 accion in
-                self.navigationController?.popViewController(animated: true)
             })
             
             alerta.addAction(accionOk)

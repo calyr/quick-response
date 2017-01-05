@@ -54,7 +54,8 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
         
         // Se solicita autorización del usuario para obetener su localización.
         manejador.requestWhenInUseAuthorization()
-        
+        mapa.setUserTrackingMode(MKUserTrackingMode.follow, animated: true)
+
         // Centra el mapa en la posición del usuario.
         mapa.setCenter(mapa.userLocation.coordinate, animated: true)
         mapa.showsUserLocation = true
