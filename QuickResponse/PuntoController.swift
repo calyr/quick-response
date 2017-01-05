@@ -16,8 +16,6 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
     var ruta : Ruta?
 
     @IBOutlet weak var mapa: MKMapView!
-    @IBOutlet weak var descripcion: UITextView!
-    @IBOutlet weak var nombre: UITextField!
     @IBOutlet weak var cameraButton: UIButton!
     private let manejador = CLLocationManager()
     @IBOutlet weak var fotoVista: UIImageView!
@@ -33,11 +31,8 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
             cameraButton.isHidden = true
         }
         
-        
-        
         if let miruta = ruta{
-            self.nombre.text = miruta.nombre!
-            //self.descripcion.text = miruta.descripcion!
+            self.title = miruta.nombre!
 
         }
         
@@ -157,7 +152,7 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
                 
                 let puntoData = punto as! Punto
                 
-                                  
+                
                     if( contador % 2 == 0){
                         point1.coordinate = CLLocationCoordinate2DMake(puntoData.latitud,puntoData.longitud)
                         point1.title = puntoData.nombre
