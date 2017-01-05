@@ -36,8 +36,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bIC-Rr-Gbj">
-                                <frame key="frameInset" minX="83" minY="197" width="222" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bIC-Rr-Gbj">
                                 <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Rutas">
                                     <color key="titleShadowColor" red="1" green="0.64611981271757224" blue="0.59746087412235549" alpha="1" colorSpace="calibratedRGB"/>
@@ -46,8 +45,7 @@
                                     <segue destination="mHq-2Q-gwb" kind="show" id="oDZ-Ye-OJq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="my4-Fs-tv3">
-                                <frame key="frameInset" minX="83" minY="235" width="222" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="my4-Fs-tv3">
                                 <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Códigos QR.">
                                     <color key="titleShadowColor" red="0.44846803163194615" green="1" blue="0.62211601514549186" alpha="1" colorSpace="calibratedRGB"/>
@@ -364,6 +362,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wqY-gx-lmg"/>
+        <segue reference="Z2J-3Z-Jqc"/>
     </inferredMetricsTieBreakers>
 </document>

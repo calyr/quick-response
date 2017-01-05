@@ -95,9 +95,10 @@ class NewRuta: UIViewController, CLLocationManagerDelegate, UIImagePickerControl
         do{
             try self.contexto?.save()
             clearForm()
-            let alerta = UIAlertController(title: "Ruta", message: " Se guardo la ruta exitosamente.", preferredStyle: .alert)
+            let alerta = UIAlertController(title: "Ruta", message: " Se guardo la ruta exitosamente. Por favor vuelva a la lista de rutas para agregar puntos de interes.", preferredStyle: .alert)
             let accionOk = UIAlertAction(title: "OK", style: .default, handler: {
                 accion in
+                
             })
             
             alerta.addAction(accionOk)
