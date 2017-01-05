@@ -250,11 +250,11 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
     point2.title = "Chungli"
     point2.subtitle = "Taiwan"
     mapa.addAnnotation(point2)
-    mapa.centerCoordinate = point2.coordinate
+    //mapa.centerCoordinate = point2.coordinate
     mapa.delegate = self
     
     //Span of the map
-    mapa.setRegion(MKCoordinateRegionMake(point2.coordinate, MKCoordinateSpanMake(0.7,0.7)), animated: true)
+    //mapa.setRegion(MKCoordinateRegionMake(point2.coordinate, MKCoordinateSpanMake(0.7,0.7)), animated: true)
     
     let directionsRequest = MKDirectionsRequest()
     let markTaipei = MKPlacemark(coordinate: CLLocationCoordinate2DMake(point1.coordinate.latitude, point1.coordinate.longitude), addressDictionary: nil)
