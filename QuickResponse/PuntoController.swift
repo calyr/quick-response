@@ -151,18 +151,23 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
             
             
             var contador = 0
-            let directionsRequest = MKDirectionsRequest()
+            let point1 = MKPointAnnotation()
+            let point2 = MKPointAnnotation()
             for punto in (self.ruta?.tiene)!  {
                 
                 let puntoData = punto as! Punto
                 
-                   let puntoNow = MKPlacemark(coordinate: CLLocationCoordinate2DMake(puntoData.latitud, puntoData.longitud), addressDictionary: nil)
-                
+                                  
                     if( contador % 2 == 0){
-                        directionsRequest.source = MKMapItem(placemark: puntoNow)
+                        point1.coordinate = CLLocationCoordinate2DMake(puntoData.latitud,puntoData.longitud)
+                        point1.title = puntoData.nombre
+                        point1.subtitle = ("Latitud: \(puntoData.latitud) Longitud: \(puntoData.longitud)")
+                     
                     }else{
-                        directionsRequest.destination = MKMapItem(placemark: puntoNow)
-                        self.crearRuta(itemOrigen: directionsRequest.source!, itemDestino:  directionsRequest.destination!)
+                        point2.coordinate = CLLocationCoordinate2DMake(puntoData.latitud,puntoData.longitud)
+                        point2.title = puntoData.nombre
+                        point2.subtitle = ("Latitud: \(puntoData.latitud) Longitud: \(puntoData.longitud)")
+                        self.crearRuta(point1: point1, point2:  point2)
                         print("Ingreso a dibujar")
                     }
                 
@@ -236,21 +241,12 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
         
     }
    
-    func crearRuta(itemOrigen: MKMapItem, itemDestino: MKMapItem){
+    func crearRuta(point1: MKPointAnnotation, point2: MKPointAnnotation){
+  
     
-    let point1 = MKPointAnnotation()
-    let point2 = MKPointAnnotation()
     
-    point1.coordinate = CLLocationCoordinate2DMake(itemOrigen.placemark.coordinate.latitude,itemOrigen.placemark.coordinate.longitude )
-    point1.title = "Taipei"
-    point1.subtitle = "Taiwan"
     mapa.addAnnotation(point1)
-    
-    point2.coordinate = CLLocationCoordinate2DMake(itemDestino.placemark.coordinate.latitude,itemDestino.placemark.coordinate.longitude)
-    point2.title = "Chungli"
-    point2.subtitle = "Taiwan"
     mapa.addAnnotation(point2)
-    //mapa.centerCoordinate = point2.coordinate
     mapa.delegate = self
     
     //Span of the map
