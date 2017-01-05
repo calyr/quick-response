@@ -11,7 +11,7 @@ import CoreLocation
 import CoreData
 import MapKit
 
-class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MKMapViewDelegate {
     
     var ruta : Ruta?
 
@@ -136,6 +136,8 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
                 print(error.localizedDescription)
             }
             
+            self.mostrarPuntos();
+            
             }))
         
         // 4. Present the alert.
@@ -164,13 +166,7 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
                         print("Ingreso a dibujar")
                     }
                 
-                    if(contador == 0 ){
-                        self.mapa.setCenter(CLLocationCoordinate2D(latitude: puntoData.latitud, longitude: puntoData.longitud), animated: true)
-                        
-                        let span = MKCoordinateSpanMake(0.075, 0.075)
-                        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: puntoData.latitud, longitude: puntoData.longitud), span: span)
-                        self.mapa.setRegion(region, animated: true)
-                    }
+                
                     contador += 1
                     self.marcarPin(latitud: puntoData.latitud, longitud: puntoData.longitud, titulo: puntoData.nombre!)
                 
@@ -182,7 +178,7 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
     @IBAction func guardar() {
         
         savePunto()
-        mostrarPuntos()
+        
         
     }
     
@@ -240,24 +236,46 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
         
     }
    
-   func crearRuta(itemOrigen: MKMapItem, itemDestino: MKMapItem){
+    func crearRuta(itemOrigen: MKMapItem, itemDestino: MKMapItem){
+    
+    let point1 = MKPointAnnotation()
+    let point2 = MKPointAnnotation()
+    
+    point1.coordinate = CLLocationCoordinate2DMake(itemOrigen.placemark.coordinate.latitude,itemOrigen.placemark.coordinate.longitude )
+    point1.title = "Taipei"
+    point1.subtitle = "Taiwan"
+    mapa.addAnnotation(point1)
+    
+    point2.coordinate = CLLocationCoordinate2DMake(itemDestino.placemark.coordinate.latitude,itemDestino.placemark.coordinate.longitude)
+    point2.title = "Chungli"
+    point2.subtitle = "Taiwan"
+    mapa.addAnnotation(point2)
+    mapa.centerCoordinate = point2.coordinate
+    mapa.delegate = self
+    
+    //Span of the map
+    mapa.setRegion(MKCoordinateRegionMake(point2.coordinate, MKCoordinateSpanMake(0.7,0.7)), animated: true)
+    
+    let directionsRequest = MKDirectionsRequest()
+    let markTaipei = MKPlacemark(coordinate: CLLocationCoordinate2DMake(point1.coordinate.latitude, point1.coordinate.longitude), addressDictionary: nil)
+    let markChungli = MKPlacemark(coordinate: CLLocationCoordinate2DMake(point2.coordinate.latitude, point2.coordinate.longitude), addressDictionary: nil)
+    
+    directionsRequest.source = MKMapItem(placemark: markChungli)
+    directionsRequest.destination = MKMapItem(placemark: markTaipei)
+    
+    directionsRequest.transportType = MKDirectionsTransportType.automobile
+    let directions = MKDirections(request: directionsRequest)
+    
+    directions.calculate(completionHandler: {
+        response, error in
         
-        let solicitud = MKDirectionsRequest()
-        solicitud.source = itemOrigen
-        solicitud.destination = itemDestino
-        solicitud.transportType = .walking
+        if error == nil {
+            self.myRoute = response!.routes[0] as MKRoute
+            self.mapa.add(self.myRoute.polyline)
+        }
         
-        let indicaciones = MKDirections(request: solicitud)
-        indicaciones.calculate(completionHandler: {
-            (respuesta: MKDirectionsResponse?, error: Error?) in
-            if(error != nil){
-                print("Error al obtener la ruta")
-            }else{
-                self.muestraRuta(respuesta: respuesta!)
-            }
-            
-        } )
-        
+    })
+    
     }
     
     func muestraRuta(respuesta: MKDirectionsResponse){
@@ -275,15 +293,14 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        let renderer = MKPolylineRenderer(overlay: overlay)
-        renderer.strokeColor = UIColor.blue
-        renderer.lineWidth = 3
-        return renderer
+        
+        let myLineRenderer = MKPolylineRenderer(polyline: myRoute.polyline)
+        myLineRenderer.strokeColor = UIColor.red
+        myLineRenderer.lineWidth = 3
+        return myLineRenderer
     }
     
-
-
-
+  
     
   
     
