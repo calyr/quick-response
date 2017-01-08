@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CF446B241E1328550040EC74 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF446B231E1328550040EC74 /* Menu.swift */; };
 		CF446B261E13351F0040EC74 /* PuntoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF446B251E13351F0040EC74 /* PuntoController.swift */; };
+		CF87EE221E22A02A00A1E69C /* TestAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF87EE211E22A02A00A1E69C /* TestAnnotationView.swift */; };
 		CF9F9D8E1E12B4180022C2C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9F9D8D1E12B4180022C2C7 /* AppDelegate.swift */; };
 		CF9F9D901E12B4180022C2C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9F9D8F1E12B4180022C2C7 /* ViewController.swift */; };
 		CF9F9D931E12B4180022C2C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF9F9D911E12B4180022C2C7 /* Main.storyboard */; };
@@ -17,6 +18,19 @@
 		CF9F9D9B1E12B4180022C2C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF9F9D991E12B4180022C2C7 /* LaunchScreen.storyboard */; };
 		CF9F9DA31E12B8970022C2C7 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9F9DA21E12B8970022C2C7 /* View.swift */; };
 		CF9F9DA51E12C10C0022C2C7 /* NVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9F9DA41E12C10C0022C2C7 /* NVC.swift */; };
+		CFE68A1A1E2294450075506B /* ARAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE68A151E2294450075506B /* ARAnnotation.swift */; };
+		CFE68A1B1E2294450075506B /* ARAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE68A161E2294450075506B /* ARAnnotationView.swift */; };
+		CFE68A1C1E2294450075506B /* ARConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE68A171E2294450075506B /* ARConfiguration.swift */; };
+		CFE68A1D1E2294450075506B /* ARTrackingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE68A181E2294450075506B /* ARTrackingManager.swift */; };
+		CFE68A1E1E2294450075506B /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE68A191E2294450075506B /* ARViewController.swift */; };
+		CFE68A211E22946F0075506B /* DebugMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE68A201E22946F0075506B /* DebugMapViewController.swift */; };
+		CFE68A271E22948E0075506B /* DebugMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFE68A231E22948E0075506B /* DebugMapViewController.xib */; };
+		CFE68A281E22948E0075506B /* hdar_close.png in Resources */ = {isa = PBXBuildFile; fileRef = CFE68A241E22948E0075506B /* hdar_close.png */; };
+		CFE68A291E22948E0075506B /* hdar_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFE68A251E22948E0075506B /* hdar_close@2x.png */; };
+		CFE68A2A1E22948E0075506B /* hdar_close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFE68A261E22948E0075506B /* hdar_close@3x.png */; };
+		CFE68A2D1E2295B50075506B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE68A2C1E2295B50075506B /* CoreLocation.framework */; };
+		CFE68A2F1E2295BD0075506B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE68A2E1E2295BD0075506B /* CoreMotion.framework */; };
+		CFE68A311E2295C50075506B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE68A301E2295C50075506B /* MapKit.framework */; };
 		CFEC40401E146750008605FB /* MisRutas.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEC403F1E146750008605FB /* MisRutas.swift */; };
 		CFEC40421E146C51008605FB /* NewRuta.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEC40411E146C51008605FB /* NewRuta.swift */; };
 		CFEC40441E147E14008605FB /* ListaRutas.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEC40431E147E14008605FB /* ListaRutas.swift */; };
@@ -25,6 +39,7 @@
 /* Begin PBXFileReference section */
 		CF446B231E1328550040EC74 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		CF446B251E13351F0040EC74 /* PuntoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuntoController.swift; sourceTree = "<group>"; };
+		CF87EE211E22A02A00A1E69C /* TestAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestAnnotationView.swift; path = "../../../Downloads/HDAugmentedReality-master/HDAugmentedRealityDemo/TestAnnotationView.swift"; sourceTree = "<group>"; };
 		CF9F9D8A1E12B4180022C2C7 /* QuickResponse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickResponse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF9F9D8D1E12B4180022C2C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF9F9D8F1E12B4180022C2C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +50,19 @@
 		CF9F9D9C1E12B4180022C2C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF9F9DA21E12B8970022C2C7 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		CF9F9DA41E12C10C0022C2C7 /* NVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVC.swift; sourceTree = "<group>"; };
+		CFE68A151E2294450075506B /* ARAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARAnnotation.swift; sourceTree = "<group>"; };
+		CFE68A161E2294450075506B /* ARAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARAnnotationView.swift; sourceTree = "<group>"; };
+		CFE68A171E2294450075506B /* ARConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARConfiguration.swift; sourceTree = "<group>"; };
+		CFE68A181E2294450075506B /* ARTrackingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARTrackingManager.swift; sourceTree = "<group>"; };
+		CFE68A191E2294450075506B /* ARViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
+		CFE68A201E22946F0075506B /* DebugMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugMapViewController.swift; sourceTree = "<group>"; };
+		CFE68A231E22948E0075506B /* DebugMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DebugMapViewController.xib; sourceTree = "<group>"; };
+		CFE68A241E22948E0075506B /* hdar_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hdar_close.png; sourceTree = "<group>"; };
+		CFE68A251E22948E0075506B /* hdar_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hdar_close@2x.png"; sourceTree = "<group>"; };
+		CFE68A261E22948E0075506B /* hdar_close@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hdar_close@3x.png"; sourceTree = "<group>"; };
+		CFE68A2C1E2295B50075506B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		CFE68A2E1E2295BD0075506B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		CFE68A301E2295C50075506B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CFEC403F1E146750008605FB /* MisRutas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MisRutas.swift; sourceTree = "<group>"; };
 		CFEC40411E146C51008605FB /* NewRuta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRuta.swift; sourceTree = "<group>"; };
 		CFEC40431E147E14008605FB /* ListaRutas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaRutas.swift; sourceTree = "<group>"; };
@@ -45,6 +73,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFE68A311E2295C50075506B /* MapKit.framework in Frameworks */,
+				CFE68A2F1E2295BD0075506B /* CoreMotion.framework in Frameworks */,
+				CFE68A2D1E2295B50075506B /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +87,7 @@
 			children = (
 				CF9F9D8C1E12B4180022C2C7 /* QuickResponse */,
 				CF9F9D8B1E12B4180022C2C7 /* Products */,
+				CFE68A2B1E2295B50075506B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +102,8 @@
 		CF9F9D8C1E12B4180022C2C7 /* QuickResponse */ = {
 			isa = PBXGroup;
 			children = (
+				CFE68A221E2294710075506B /* Resources */,
+				CFE68A141E2294140075506B /* Classes */,
 				CF9F9D8D1E12B4180022C2C7 /* AppDelegate.swift */,
 				CF9F9D8F1E12B4180022C2C7 /* ViewController.swift */,
 				CF9F9D911E12B4180022C2C7 /* Main.storyboard */,
@@ -81,11 +115,54 @@
 				CF9F9DA41E12C10C0022C2C7 /* NVC.swift */,
 				CF446B231E1328550040EC74 /* Menu.swift */,
 				CF446B251E13351F0040EC74 /* PuntoController.swift */,
+				CF87EE211E22A02A00A1E69C /* TestAnnotationView.swift */,
 				CFEC403F1E146750008605FB /* MisRutas.swift */,
 				CFEC40411E146C51008605FB /* NewRuta.swift */,
 				CFEC40431E147E14008605FB /* ListaRutas.swift */,
 			);
 			path = QuickResponse;
+			sourceTree = "<group>";
+		};
+		CFE68A141E2294140075506B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				CFE68A1F1E2294580075506B /* Debug */,
+				CFE68A151E2294450075506B /* ARAnnotation.swift */,
+				CFE68A161E2294450075506B /* ARAnnotationView.swift */,
+				CFE68A171E2294450075506B /* ARConfiguration.swift */,
+				CFE68A181E2294450075506B /* ARTrackingManager.swift */,
+				CFE68A191E2294450075506B /* ARViewController.swift */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		CFE68A1F1E2294580075506B /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				CFE68A201E22946F0075506B /* DebugMapViewController.swift */,
+			);
+			name = Debug;
+			sourceTree = "<group>";
+		};
+		CFE68A221E2294710075506B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CFE68A231E22948E0075506B /* DebugMapViewController.xib */,
+				CFE68A241E22948E0075506B /* hdar_close.png */,
+				CFE68A251E22948E0075506B /* hdar_close@2x.png */,
+				CFE68A261E22948E0075506B /* hdar_close@3x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		CFE68A2B1E2295B50075506B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CFE68A301E2295C50075506B /* MapKit.framework */,
+				CFE68A2E1E2295BD0075506B /* CoreMotion.framework */,
+				CFE68A2C1E2295B50075506B /* CoreLocation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,8 +226,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF9F9D9B1E12B4180022C2C7 /* LaunchScreen.storyboard in Resources */,
+				CFE68A281E22948E0075506B /* hdar_close.png in Resources */,
+				CFE68A2A1E22948E0075506B /* hdar_close@3x.png in Resources */,
 				CF9F9D981E12B4180022C2C7 /* Assets.xcassets in Resources */,
 				CF9F9D931E12B4180022C2C7 /* Main.storyboard in Resources */,
+				CFE68A291E22948E0075506B /* hdar_close@2x.png in Resources */,
+				CFE68A271E22948E0075506B /* DebugMapViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,14 +243,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF446B241E1328550040EC74 /* Menu.swift in Sources */,
+				CFE68A1A1E2294450075506B /* ARAnnotation.swift in Sources */,
 				CFEC40401E146750008605FB /* MisRutas.swift in Sources */,
+				CFE68A1C1E2294450075506B /* ARConfiguration.swift in Sources */,
 				CF9F9DA31E12B8970022C2C7 /* View.swift in Sources */,
 				CF9F9D961E12B4180022C2C7 /* QuickResponse.xcdatamodeld in Sources */,
 				CF9F9DA51E12C10C0022C2C7 /* NVC.swift in Sources */,
 				CFEC40421E146C51008605FB /* NewRuta.swift in Sources */,
 				CF446B261E13351F0040EC74 /* PuntoController.swift in Sources */,
+				CFE68A1E1E2294450075506B /* ARViewController.swift in Sources */,
 				CFEC40441E147E14008605FB /* ListaRutas.swift in Sources */,
+				CF87EE221E22A02A00A1E69C /* TestAnnotationView.swift in Sources */,
+				CFE68A211E22946F0075506B /* DebugMapViewController.swift in Sources */,
 				CF9F9D901E12B4180022C2C7 /* ViewController.swift in Sources */,
+				CFE68A1D1E2294450075506B /* ARTrackingManager.swift in Sources */,
+				CFE68A1B1E2294450075506B /* ARAnnotationView.swift in Sources */,
 				CF9F9D8E1E12B4180022C2C7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,6 +380,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = D7P3M7NR38;
 				INFOPLIST_FILE = QuickResponse/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nuevatel.mobile.QuickResponse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -305,6 +394,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = D7P3M7NR38;
 				INFOPLIST_FILE = QuickResponse/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nuevatel.mobile.QuickResponse;
 				PRODUCT_NAME = "$(TARGET_NAME)";

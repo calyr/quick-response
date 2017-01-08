@@ -11,7 +11,7 @@ import CoreLocation
 import CoreData
 import MapKit
 
-class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MKMapViewDelegate {
+class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MKMapViewDelegate, ARDataSource {
     
     var ruta : Ruta?
 
@@ -291,9 +291,114 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
         return myLineRenderer
     }
     
-  
+    
+    //Realidad Aumentada
+    @IBAction func inicia(_ sender: UIButton) {
+        iniciaRAG()
+    }
     
   
+    func ar(_ arViewController: ARViewController, viewForAnnotation: ARAnnotation) -> ARAnnotationView {
+        
+        let vista = TestAnnotationView()
+        vista.backgroundColor = UIColor.black
+        vista.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
+        return vista
+        
+    }
+    
+    func iniciaRAG(){
+        
+        let latitude   = (self.manejador.location?.coordinate.latitude)!
+        let longitude  = (self.manejador.location?.coordinate.longitude)!
+
+        let delta = 0.05
+        
+        print("La cantidad de puntos es \(ruta?.tiene?.count)")
+        let numeroDeElementos = ruta?.tiene?.count
+        
+        let puntosDeInteres = obtenAnotaciones(latitud: latitude, longitud: longitude, delta: delta, numeroDeElementos: numeroDeElementos!)
+        let arViewController = ARViewController()
+        arViewController.dataSource = self
+        arViewController.maxDistance = 0
+        arViewController.maxVisibleAnnotations = 50
+        arViewController.maxVerticalLevel = 5
+        arViewController.headingSmoothingFactor = 0.05
+        arViewController.trackingManager.userDistanceFilter = 25
+        arViewController.trackingManager.reloadDistanceFilter = 75
+        arViewController.setAnnotations(puntosDeInteres)
+        arViewController.uiOptions.debugEnabled = true
+        arViewController.uiOptions.closeButtonEnabled = true
+        //arViewController.interfaceOrientationMask = .landscape
+        arViewController.onDidFailToFindLocation =
+            {
+                [weak self, weak arViewController] elapsedSeconds, acquiredLocationBefore in
+                // Show alert and dismiss
+        }
+        self.present(arViewController, animated: true, completion: nil)
+    }
+    
+    private func obtenAnotaciones( latitud: Double, longitud: Double, delta: Double, numeroDeElementos: Int) -> Array<ARAnnotation>{
+        
+        var anotaciones: [ARAnnotation] = []
+     
+        
+        for punto in (self.ruta?.tiene)!  {
+            
+            let puntoData = punto as! Punto
+            
+            let anotacion = ARAnnotation()
+            anotacion.location = self.obtenerPosiciones(latitud: puntoData.latitud, longitud: puntoData.longitud, delta: delta)
+            anotacion.title = puntoData.nombre
+            anotaciones.append(anotacion)
+                 }
+        
+       
+        return anotaciones
+    }
+    
+    private func obtenerPosiciones( latitud: Double, longitud: Double, delta: Double )-> CLLocation{
+        var lat = latitud
+        var lon = longitud
+        let latDelta = -(delta/2) + drand48() * delta
+        let lonDelta = -(delta/2) + drand48() * delta
+        lat = lat + latDelta
+        lon = lon + lonDelta
+        return CLLocation(latitude: lat, longitude: lon)    
+    }
+    
+    //Redes sociales
+    @IBOutlet weak var compartir: UIButton!
+    
+     
+    
+    @IBAction func enviarCompartir(_ sender: UIButton) {
+        print("Compartiendo el button")
+        let textoFijo = "Proyecto Final IOS by Calyr"
+        if let miSitio = NSURL(string: "https://twitter.com/calyrsoft"){
+            print(miSitio)
+            let objetosParaCompartir = [textoFijo, miSitio] as [Any]
+            /*let actividadRB = UIActivityViewController(activityItems: objetosParaCompartir, applicationActivities: nil)
+             present(actividadRB, animated: true, completion: nil)
+             */
+            let activityViewController = UIActivityViewController(
+                activityItems: ["Check out this beer I liked using Beer Tracker.", miSitio],
+                applicationActivities: nil)
+            if let popoverPresentationController = activityViewController.popoverPresentationController {
+                popoverPresentationController.barButtonItem = (sender as! UIBarButtonItem)
+            }
+            
+            self.popoverPresentationController?.sourceView = self.view
+            self.popoverPresentationController?.sourceRect = self.view.bounds
+            // this is the center of the screen currently but it can be any point in the view
+            present(activityViewController, animated: true, completion: nil)
+
+            
+        }
+
+    }
+    
+    
     
     
 }
