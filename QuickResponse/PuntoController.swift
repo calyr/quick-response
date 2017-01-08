@@ -387,9 +387,11 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
         print("Compartiendo el button")
      
         // text to share
-        let text = "Proyecto Final IOS by Calyr"
+        let text = "Proyecto Final IOS by Calyr (Ruta \(ruta?.nombre!) )"
         
         // set up activity view controller
+        
+        
         let textToShare = [ text ]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash

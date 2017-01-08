@@ -343,7 +343,6 @@
                                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Compartir"/>
                                                 <connections>
-                                                    <action selector="compartirPunto" destination="24X-vl-hpm" eventType="touchUpInside" id="0fp-cv-h1Z"/>
                                                     <action selector="enviarCompartir:" destination="24X-vl-hpm" eventType="touchUpInside" id="wNI-Gi-I2G"/>
                                                 </connections>
                                             </button>
