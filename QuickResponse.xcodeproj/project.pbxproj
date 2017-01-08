@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		CF446B241E1328550040EC74 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF446B231E1328550040EC74 /* Menu.swift */; };
 		CF446B261E13351F0040EC74 /* PuntoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF446B251E13351F0040EC74 /* PuntoController.swift */; };
+		CF693E541E22D6AB007DFE9A /* EventosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF693E531E22D6AB007DFE9A /* EventosViewController.swift */; };
+		CF693E561E22D774007DFE9A /* Evento.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF693E551E22D774007DFE9A /* Evento.swift */; };
 		CF87EE221E22A02A00A1E69C /* TestAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF87EE211E22A02A00A1E69C /* TestAnnotationView.swift */; };
 		CF9F9D8E1E12B4180022C2C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9F9D8D1E12B4180022C2C7 /* AppDelegate.swift */; };
 		CF9F9D901E12B4180022C2C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9F9D8F1E12B4180022C2C7 /* ViewController.swift */; };
@@ -39,6 +41,8 @@
 /* Begin PBXFileReference section */
 		CF446B231E1328550040EC74 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		CF446B251E13351F0040EC74 /* PuntoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuntoController.swift; sourceTree = "<group>"; };
+		CF693E531E22D6AB007DFE9A /* EventosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventosViewController.swift; sourceTree = "<group>"; };
+		CF693E551E22D774007DFE9A /* Evento.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evento.swift; sourceTree = "<group>"; };
 		CF87EE211E22A02A00A1E69C /* TestAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestAnnotationView.swift; path = "../../../Downloads/HDAugmentedReality-master/HDAugmentedRealityDemo/TestAnnotationView.swift"; sourceTree = "<group>"; };
 		CF9F9D8A1E12B4180022C2C7 /* QuickResponse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickResponse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF9F9D8D1E12B4180022C2C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +123,8 @@
 				CFEC403F1E146750008605FB /* MisRutas.swift */,
 				CFEC40411E146C51008605FB /* NewRuta.swift */,
 				CFEC40431E147E14008605FB /* ListaRutas.swift */,
+				CF693E531E22D6AB007DFE9A /* EventosViewController.swift */,
+				CF693E551E22D774007DFE9A /* Evento.swift */,
 			);
 			path = QuickResponse;
 			sourceTree = "<group>";
@@ -242,7 +248,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF693E561E22D774007DFE9A /* Evento.swift in Sources */,
 				CF446B241E1328550040EC74 /* Menu.swift in Sources */,
+				CF693E541E22D6AB007DFE9A /* EventosViewController.swift in Sources */,
 				CFE68A1A1E2294450075506B /* ARAnnotation.swift in Sources */,
 				CFEC40401E146750008605FB /* MisRutas.swift in Sources */,
 				CFE68A1C1E2294450075506B /* ARConfiguration.swift in Sources */,
