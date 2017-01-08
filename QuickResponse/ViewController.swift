@@ -16,10 +16,24 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        direccion?.text = urls!
-        let url = URL(string: urls!)
-        let peticion  = URLRequest(url: url!)
-        web.loadRequest(peticion)
+        if !UIImagePickerController.isSourceTypeAvailable(.camera){
+            let alerta = UIAlertController(title: "Codigo QR", message: " La camara no esta habilitada, favor probar en un dispositivo físico.", preferredStyle: .alert)
+            let accionOk = UIAlertAction(title: "OK", style: .default, handler: {
+                accion in
+                
+            })
+            
+            alerta.addAction(accionOk)
+            present(alerta, animated: true, completion: nil)
+            
+        }else{
+            direccion?.text = urls!
+            let url = URL(string: urls!)
+            let peticion  = URLRequest(url: url!)
+            web.loadRequest(peticion)
+        }
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 

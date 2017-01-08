@@ -150,6 +150,9 @@
                             <outlet property="delegate" destination="IA4-4p-qqk" id="Fk2-yE-tMF"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="mitabla" destination="upz-ch-spx" id="eQJ-aC-6Da"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="65A-gV-eYU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -314,83 +317,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="CZD-zN-XCO">
-                                <frame key="frameInset" minY="72" width="375" height="475"/>
-                            </mapView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tu7-Z8-cVP">
-                                <frame key="frameInset" minY="110" width="375" height="384"/>
-                                <color key="backgroundColor" red="0.80392156859999997" green="0.90588235289999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="144" id="IXP-kQ-NE4"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XGZ-pb-44I">
-                                <color key="backgroundColor" red="0.44846803159999998" green="1" blue="0.62211601510000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Camara"/>
-                                <connections>
-                                    <action selector="camara" destination="24X-vl-hpm" eventType="touchUpInside" id="P8V-DE-i2M"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDy-Ar-dBr">
-                                <color key="backgroundColor" red="0.44846803159999998" green="1" blue="0.62211601510000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="gJn-q3-S6f"/>
-                                    <constraint firstAttribute="height" constant="30" id="grb-CM-2Ih"/>
-                                </constraints>
-                                <state key="normal" title="QR"/>
-                                <connections>
-                                    <segue destination="338-lh-Als" kind="show" id="wqY-gx-lmg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhq-rF-Xwo">
-                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Albun"/>
-                                <connections>
-                                    <action selector="album" destination="24X-vl-hpm" eventType="touchUpInside" id="AES-wS-DP2"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dwx-EE-BfF">
-                                <color key="backgroundColor" red="0.65419184160648691" green="1" blue="0.32645011854788075" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="2pr-sw-b2p"/>
-                                    <constraint firstAttribute="width" constant="200" id="hPV-Yb-hev"/>
-                                </constraints>
-                                <state key="normal" title="AR"/>
-                                <connections>
-                                    <action selector="inicia:" destination="24X-vl-hpm" eventType="touchUpInside" id="als-TE-zcW"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIW-Uj-g8e">
-                                <color key="backgroundColor" red="1" green="0.70826529625332102" blue="0.60536176682162146" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Compartir"/>
-                                <connections>
-                                    <action selector="compartirPunto" destination="24X-vl-hpm" eventType="touchUpInside" id="0fp-cv-h1Z"/>
-                                    <action selector="enviarCompartir:" destination="24X-vl-hpm" eventType="touchUpInside" id="wNI-Gi-I2G"/>
-                                </connections>
-                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="CZD-zN-XCO"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="EuG-CB-g1L">
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fKp-IF-nDa">
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NQT-qM-bGX">
+                                                <color key="backgroundColor" red="1" green="0.092072186941365874" blue="0.12751890378404951" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="16T-nS-M8a"/>
+                                                    <constraint firstAttribute="height" constant="60" id="dIw-2V-ayP"/>
+                                                </constraints>
+                                                <state key="normal" title="MostrarRuta">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="mostrarRutaR" destination="24X-vl-hpm" eventType="touchUpInside" id="Zuu-C3-fO3"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIW-Uj-g8e">
+                                                <color key="backgroundColor" red="1" green="0.70826529625332102" blue="0.60536176682162146" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="Be1-Tz-lk9"/>
+                                                </constraints>
+                                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Compartir"/>
+                                                <connections>
+                                                    <action selector="compartirPunto" destination="24X-vl-hpm" eventType="touchUpInside" id="0fp-cv-h1Z"/>
+                                                    <action selector="enviarCompartir:" destination="24X-vl-hpm" eventType="touchUpInside" id="wNI-Gi-I2G"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t96-0q-hIq">
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDy-Ar-dBr">
+                                                <color key="backgroundColor" red="0.44846803159999998" green="1" blue="0.62211601510000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="Ipc-g0-67g"/>
+                                                    <constraint firstAttribute="height" constant="60" id="jtc-b8-WCW"/>
+                                                </constraints>
+                                                <state key="normal" title="QR"/>
+                                                <connections>
+                                                    <segue destination="338-lh-Als" kind="show" id="wqY-gx-lmg"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dwx-EE-BfF">
+                                                <color key="backgroundColor" red="0.65419184160648691" green="1" blue="0.32645011854788075" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="2hg-7y-IFG"/>
+                                                </constraints>
+                                                <state key="normal" title="AR"/>
+                                                <connections>
+                                                    <action selector="inicia:" destination="24X-vl-hpm" eventType="touchUpInside" id="als-TE-zcW"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Dwx-EE-BfF" secondAttribute="trailing" id="3CC-M3-9f7"/>
-                            <constraint firstItem="GDy-Ar-dBr" firstAttribute="trailing" secondItem="XGZ-pb-44I" secondAttribute="trailing" id="7cY-t1-FsL"/>
-                            <constraint firstItem="tu7-Z8-cVP" firstAttribute="leading" secondItem="XGZ-pb-44I" secondAttribute="trailing" constant="19" id="7ne-oV-vic"/>
-                            <constraint firstItem="XGZ-pb-44I" firstAttribute="leading" secondItem="FKY-BU-doA" secondAttribute="leadingMargin" constant="-9" id="DEt-dw-86l"/>
-                            <constraint firstItem="CZD-zN-XCO" firstAttribute="leading" secondItem="FKY-BU-doA" secondAttribute="leading" id="FuW-xp-pX1"/>
-                            <constraint firstItem="Dwx-EE-BfF" firstAttribute="trailing" secondItem="CZD-zN-XCO" secondAttribute="trailing" id="NIP-5e-bUe"/>
-                            <constraint firstItem="XGZ-pb-44I" firstAttribute="top" secondItem="Kbc-eH-3wC" secondAttribute="bottom" constant="8" symbolic="YES" id="PEt-P2-Vgy"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="tu7-Z8-cVP" secondAttribute="trailing" constant="-8" id="Qse-h6-f45"/>
-                            <constraint firstItem="CZD-zN-XCO" firstAttribute="top" secondItem="tu7-Z8-cVP" secondAttribute="bottom" constant="8" symbolic="YES" id="XcD-kl-ZEO"/>
-                            <constraint firstItem="TIW-Uj-g8e" firstAttribute="top" secondItem="CZD-zN-XCO" secondAttribute="bottom" constant="50" id="eJa-50-TDj"/>
-                            <constraint firstItem="Dwx-EE-BfF" firstAttribute="top" secondItem="TIW-Uj-g8e" secondAttribute="bottom" constant="8" id="gcJ-am-LOF"/>
-                            <constraint firstItem="Dwx-EE-BfF" firstAttribute="trailing" secondItem="TIW-Uj-g8e" secondAttribute="trailing" id="gyQ-Pj-4d2"/>
-                            <constraint firstItem="XGZ-pb-44I" firstAttribute="top" secondItem="tu7-Z8-cVP" secondAttribute="top" id="kYn-97-INM"/>
-                            <constraint firstItem="GDy-Ar-dBr" firstAttribute="leading" secondItem="XGZ-pb-44I" secondAttribute="leading" id="mC6-cm-IJh"/>
-                            <constraint firstItem="GDy-Ar-dBr" firstAttribute="trailing" secondItem="lhq-rF-Xwo" secondAttribute="trailing" id="oK9-Of-a5d"/>
-                            <constraint firstItem="GDy-Ar-dBr" firstAttribute="top" secondItem="lhq-rF-Xwo" secondAttribute="bottom" constant="50" id="oeb-87-HLi"/>
-                            <constraint firstItem="Dwx-EE-BfF" firstAttribute="baseline" secondItem="GDy-Ar-dBr" secondAttribute="baseline" id="rM3-tH-iA3"/>
-                            <constraint firstItem="Dwx-EE-BfF" firstAttribute="bottom" secondItem="7GM-sc-moa" secondAttribute="top" id="xfZ-Ps-4yq"/>
-                            <constraint firstItem="GDy-Ar-dBr" firstAttribute="leading" secondItem="lhq-rF-Xwo" secondAttribute="leading" id="z9p-2J-EES"/>
+                            <constraint firstAttribute="trailing" secondItem="CZD-zN-XCO" secondAttribute="trailing" id="PYC-lB-2DE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EuG-CB-g1L" secondAttribute="trailing" id="hOB-PV-6bX"/>
+                            <constraint firstItem="7GM-sc-moa" firstAttribute="top" secondItem="EuG-CB-g1L" secondAttribute="bottom" id="jcH-H9-61t"/>
+                            <constraint firstItem="CZD-zN-XCO" firstAttribute="leading" secondItem="FKY-BU-doA" secondAttribute="leading" id="nfU-L1-8xg"/>
+                            <constraint firstAttribute="bottom" secondItem="CZD-zN-XCO" secondAttribute="bottom" id="r5s-3Q-wRA"/>
+                            <constraint firstItem="EuG-CB-g1L" firstAttribute="leading" secondItem="FKY-BU-doA" secondAttribute="leadingMargin" id="vfr-PS-oLe"/>
+                            <constraint firstItem="CZD-zN-XCO" firstAttribute="top" secondItem="Kbc-eH-3wC" secondAttribute="bottom" id="vvL-VB-ckX"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -408,9 +403,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="cameraButton" destination="XGZ-pb-44I" id="v5G-ty-NnJ"/>
                         <outlet property="compartir" destination="TIW-Uj-g8e" id="7rI-Wq-TU5"/>
-                        <outlet property="fotoVista" destination="tu7-Z8-cVP" id="C4E-TT-uZc"/>
                         <outlet property="mapa" destination="CZD-zN-XCO" id="06H-lX-lYJ"/>
                     </connections>
                 </viewController>
@@ -522,6 +515,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Z2J-3Z-Jqc"/>
+        <segue reference="wqY-gx-lmg"/>
     </inferredMetricsTieBreakers>
 </document>

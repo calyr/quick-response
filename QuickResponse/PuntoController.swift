@@ -27,9 +27,7 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
         super.viewDidLoad()
         self.contexto = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
         
-        if !UIImagePickerController.isSourceTypeAvailable(.camera){
-            cameraButton.isHidden = true
-        }
+       
         
         if let miruta = ruta{
             self.title = miruta.nombre!
@@ -294,7 +292,20 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
     
     //Realidad Aumentada
     @IBAction func inicia(_ sender: UIButton) {
-        iniciaRAG()
+        if !UIImagePickerController.isSourceTypeAvailable(.camera){
+            let alerta = UIAlertController(title: "Realidad Aumentada", message: " La camara no esta habilitada, favor probar en un dispositivo físico.", preferredStyle: .alert)
+            let accionOk = UIAlertAction(title: "OK", style: .default, handler: {
+                accion in
+                
+            })
+            
+            alerta.addAction(accionOk)
+            present(alerta, animated: true, completion: nil)
+            
+        }else{
+            iniciaRAG()
+        }
+        
     }
     
   
@@ -374,31 +385,28 @@ class PuntoController: UIViewController, CLLocationManagerDelegate, UIImagePicke
     
     @IBAction func enviarCompartir(_ sender: UIButton) {
         print("Compartiendo el button")
-        let textoFijo = "Proyecto Final IOS by Calyr"
-        if let miSitio = NSURL(string: "https://twitter.com/calyrsoft"){
-            print(miSitio)
-            let objetosParaCompartir = [textoFijo, miSitio] as [Any]
-            /*let actividadRB = UIActivityViewController(activityItems: objetosParaCompartir, applicationActivities: nil)
-             present(actividadRB, animated: true, completion: nil)
-             */
-            let activityViewController = UIActivityViewController(
-                activityItems: ["Check out this beer I liked using Beer Tracker.", miSitio],
-                applicationActivities: nil)
-            if let popoverPresentationController = activityViewController.popoverPresentationController {
-                popoverPresentationController.barButtonItem = (sender as! UIBarButtonItem)
-            }
-            
-            self.popoverPresentationController?.sourceView = self.view
-            self.popoverPresentationController?.sourceRect = self.view.bounds
-            // this is the center of the screen currently but it can be any point in the view
-            present(activityViewController, animated: true, completion: nil)
-
-            
-        }
-
+     
+        // text to share
+        let text = "Proyecto Final IOS by Calyr"
+        
+        // set up activity view controller
+        let textToShare = [ text ]
+        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+        
+        // exclude some activity types from the list (optional)
+        activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.postToFacebook ]
+        
+        // present the view controller
+        self.present(activityViewController, animated: true, completion: nil)
+        
     }
     
     
+    @IBAction func mostrarRutaR() {
+        
+        mostrarPuntos()
+    }
     
     
 }
