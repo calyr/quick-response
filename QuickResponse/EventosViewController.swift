@@ -89,8 +89,8 @@ class EventosViewController: UITableViewController {
 
         
         // Configure the cell...
-        cell.textLabel?.text = toDoItemsEventos[indexPath.row].nombre
-        cell.detailTextLabel?.text = toDoItemsEventos[indexPath.row].descripcion
+        cell.textLabel?.text = toDoItemsEventos[indexPath.row].nombre!
+        cell.detailTextLabel?.text = " \(toDoItemsEventos[indexPath.row].descripcion!) Fecha \(toDoItemsEventos[indexPath.row].fecha!)"
         
         return cell
     }
