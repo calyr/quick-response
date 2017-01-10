@@ -4,14 +4,39 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Milibreria.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 		<key>QuickResponse.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>QuickWatch (Notification).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>QuickWatch.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>CF693E581E256561007DFE9A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CF693E841E25748D007DFE9A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>CF9F9D891E12B4180022C2C7</key>
 		<dict>
 			<key>primary</key>
