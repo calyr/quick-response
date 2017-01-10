@@ -16,7 +16,7 @@ class EventosViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Eventos Cochabamba - Bolivia"
-        buscarEventos()
+        sincrono()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -24,52 +24,48 @@ class EventosViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-    func buscarEventos(){
+    
+
+    func sincrono(){
         
         let urls = "https://secure-caverns-53516.herokuapp.com/eventos"
         let url = URL(string: urls)
-                
-        URLSession.shared.dataTask(with:url!) { (data, response, error) in
-            if error != nil {
-                print(error)
-            } else {
-                do {
-                    let parsedData = try JSONSerialization.jsonObject(with: data!, options: []) as! NSArray
-                    
-                    for dataItem in parsedData{
-                        //                        if  let item as! NSObject{
-                        //
-                        //                        }
-                        //                        print("Imprimiendo los items")
-                        //                        print(dataItem)
-                        //                        print(dataItem["description"])
-                        let item = dataItem as! NSDictionary
-                        print(item)
-                        print(item["descripcion"])
-                        print(item["fecha"])
-                        print(item["nombre"])
-                        let evento: Evento = Evento()
-                        evento.nombre = item["nombre"] as! String?
-                        evento.descripcion = item["descripcion"] as! String?
-                        evento.fecha = item["fecha"] as! String?
-                        self.toDoItemsEventos.append(evento)
-                        
-                        
-                        
-                    }
-                    print(parsedData)
-                    self.mitabla?.reloadData()
 
-                } catch let error as NSError {
-                    print(error)
-                }
-            }
+        let datos:NSData? = NSData(contentsOf: url! as URL)
+        // let texto = NSString( data: datos!, encoding: NSUTF8StringEncoding)
+        do {
+            let json  = try JSONSerialization.jsonObject(with: datos! as Data, options: JSONSerialization.ReadingOptions.mutableLeaves)
             
-            }.resume()
-        
+            let dataArray = json as! NSArray
+            print(dataArray)
+            self.toDoItemsEventos = []
+            for dataItem in dataArray{
+                
+                let item = dataItem as! NSDictionary
+                let evento: Evento = Evento()
+                evento.nombre = item["nombre"] as! String?
+                evento.descripcion = item["descripcion"] as! String?
+                evento.fecha = item["fecha"] as! String?
+                self.toDoItemsEventos.append(evento)
+                
+                
+                
             }
 
-
+            
+           
+            
+            
+            
+        }catch _ {
+            
+            let alert = UIAlertController(title: "NO INTERNET ?", message: "Check Internet connection / Flight mode please.", preferredStyle: .alert)
+            let popup = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(popup)
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -99,8 +95,7 @@ class EventosViewController: UITableViewController {
         return cell
     }
     override func viewWillAppear(_ animated: Bool) {
-        buscarEventos()
-
+       self.mitabla?.reloadData()
         
     }
     
