@@ -32,6 +32,7 @@
 		CF9F9D9B1E12B4180022C2C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF9F9D991E12B4180022C2C7 /* LaunchScreen.storyboard */; };
 		CF9F9DA31E12B8970022C2C7 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9F9DA21E12B8970022C2C7 /* View.swift */; };
 		CF9F9DA51E12C10C0022C2C7 /* NVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9F9DA41E12C10C0022C2C7 /* NVC.swift */; };
+		CFC2DE8E1E26CC7F003F5EAA /* fotoayuda.png in Resources */ = {isa = PBXBuildFile; fileRef = CFC2DE8D1E26CC7F003F5EAA /* fotoayuda.png */; };
 		CFE68A1A1E2294450075506B /* ARAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE68A151E2294450075506B /* ARAnnotation.swift */; };
 		CFE68A1B1E2294450075506B /* ARAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE68A161E2294450075506B /* ARAnnotationView.swift */; };
 		CFE68A1C1E2294450075506B /* ARConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE68A171E2294450075506B /* ARConfiguration.swift */; };
@@ -141,6 +142,7 @@
 		CF9F9D9C1E12B4180022C2C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF9F9DA21E12B8970022C2C7 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		CF9F9DA41E12C10C0022C2C7 /* NVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVC.swift; sourceTree = "<group>"; };
+		CFC2DE8D1E26CC7F003F5EAA /* fotoayuda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fotoayuda.png; path = ../../../Desktop/fotoayuda.png; sourceTree = "<group>"; };
 		CFE68A151E2294450075506B /* ARAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARAnnotation.swift; sourceTree = "<group>"; };
 		CFE68A161E2294450075506B /* ARAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARAnnotationView.swift; sourceTree = "<group>"; };
 		CFE68A171E2294450075506B /* ARConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARConfiguration.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				CF9F9DA21E12B8970022C2C7 /* View.swift */,
 				CF9F9DA41E12C10C0022C2C7 /* NVC.swift */,
 				CF446B231E1328550040EC74 /* Menu.swift */,
+				CFC2DE8D1E26CC7F003F5EAA /* fotoayuda.png */,
 				CF446B251E13351F0040EC74 /* PuntoController.swift */,
 				CF87EE211E22A02A00A1E69C /* TestAnnotationView.swift */,
 				CFEC403F1E146750008605FB /* MisRutas.swift */,
@@ -494,6 +497,7 @@
 				CFE68A281E22948E0075506B /* hdar_close.png in Resources */,
 				CFE68A2A1E22948E0075506B /* hdar_close@3x.png in Resources */,
 				CF9F9D981E12B4180022C2C7 /* Assets.xcassets in Resources */,
+				CFC2DE8E1E26CC7F003F5EAA /* fotoayuda.png in Resources */,
 				CF9F9D931E12B4180022C2C7 /* Main.storyboard in Resources */,
 				CFE68A291E22948E0075506B /* hdar_close@2x.png in Resources */,
 				CFE68A271E22948E0075506B /* DebugMapViewController.xib in Resources */,
@@ -857,6 +861,7 @@
 				CF693E7B1E256561007DFE9A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CF693E7E1E256561007DFE9A /* Build configuration list for PBXNativeTarget "QuickWatch" */ = {
 			isa = XCConfigurationList;
@@ -865,6 +870,7 @@
 				CF693E791E256561007DFE9A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CF693E8E1E25748E007DFE9A /* Build configuration list for PBXNativeTarget "Milibreria" */ = {
 			isa = XCConfigurationList;
@@ -873,6 +879,7 @@
 				CF693E901E25748E007DFE9A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CF9F9D851E12B4180022C2C7 /* Build configuration list for PBXProject "QuickResponse" */ = {
 			isa = XCConfigurationList;

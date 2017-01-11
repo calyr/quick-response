@@ -74,7 +74,7 @@
                                             <constraint firstAttribute="height" constant="50" id="dcI-gP-HXw"/>
                                             <constraint firstAttribute="width" constant="250" id="ow8-95-8hK"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                         <state key="normal" title="Eventos">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -94,6 +94,14 @@
                                         </state>
                                         <connections>
                                             <segue destination="VlO-nD-gzv" kind="show" id="r9K-9B-J0B"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LoK-XD-b2K">
+                                        <color key="backgroundColor" red="1" green="0.93921602015850092" blue="0.35905529953243431" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                        <state key="normal" title="Ayuda"/>
+                                        <connections>
+                                            <segue destination="T7C-sn-CoX" kind="show" id="URS-pX-fpZ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -410,6 +418,34 @@
             </objects>
             <point key="canvasLocation" x="2373.5999999999999" y="-1614.2428785607199"/>
         </scene>
+        <!--Ayuda-->
+        <scene sceneID="SOP-gu-Yjp">
+            <objects>
+                <viewController id="T7C-sn-CoX" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lif-5k-RLR"/>
+                        <viewControllerLayoutGuide type="bottom" id="jgL-3s-8Um"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bi3-Vg-4dl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fotoayuda.png" translatesAutoresizingMaskIntoConstraints="NO" id="HUg-wX-QXg"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jgL-3s-8Um" firstAttribute="top" secondItem="HUg-wX-QXg" secondAttribute="bottom" id="7qa-TD-D4A"/>
+                            <constraint firstItem="HUg-wX-QXg" firstAttribute="trailing" secondItem="bi3-Vg-4dl" secondAttribute="trailingMargin" id="LQF-jf-fnu"/>
+                            <constraint firstItem="HUg-wX-QXg" firstAttribute="leading" secondItem="bi3-Vg-4dl" secondAttribute="leadingMargin" id="bCt-hf-mbl"/>
+                            <constraint firstItem="HUg-wX-QXg" firstAttribute="top" secondItem="lif-5k-RLR" secondAttribute="bottom" id="dMd-pC-ccX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Ayuda" id="SWW-R5-J7G"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DSt-h2-ucL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="725.60000000000002" y="-518.59070464767615"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="xI8-mv-QPL">
             <objects>
@@ -513,7 +549,10 @@
             <point key="canvasLocation" x="1140" y="-131"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="fotoayuda.png" width="405" height="632"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wqY-gx-lmg"/>
+        <segue reference="Z2J-3Z-Jqc"/>
     </inferredMetricsTieBreakers>
 </document>
