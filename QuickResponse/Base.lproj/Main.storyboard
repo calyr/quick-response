@@ -430,7 +430,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fotoayuda.png" translatesAutoresizingMaskIntoConstraints="NO" id="HUg-wX-QXg"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mifotoayuda" translatesAutoresizingMaskIntoConstraints="NO" id="HUg-wX-QXg"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -550,7 +550,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="fotoayuda.png" width="405" height="632"/>
+        <image name="mifotoayuda" width="202" height="316"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Z2J-3Z-Jqc"/>
